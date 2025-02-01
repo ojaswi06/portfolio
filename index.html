@@ -16,7 +16,6 @@
         }
 
         body {
-            background-image: url('Assets/bb.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -54,16 +53,19 @@
             z-index: 1000;
             animation: slideIn 1s ease-out;
         }
+
         @keyframes slideIn {
             from {
                 transform: translateY(-100%);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
+
         nav ul {
             list-style: none;
             display: flex;
@@ -77,6 +79,14 @@
         nav ul li a {
             color: #fff;
             text-decoration: none;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        main {
+            padding-top: 90px;
         }
 
         main hr {
@@ -196,6 +206,86 @@
         ul li a:hover {
             color: rgb(183, 183, 252);
         }
+
+        .side-nav {
+            display: none;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .side-nav a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .side-nav a:hover {
+            color: #f1f1f1;
+        }
+
+        .open-btn {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .bar {
+                display: none;
+            }
+            .side-nav {
+                display: block;
+            }
+
+            .lft {
+                font-size: 1.5rem;
+            }
+            .lft p{
+                font-size: 1.2rem;
+            }
+            hr {
+                margin: 40px 0;
+            }
+
+            .open-btn {
+                display: block;
+                font-size: 30px;
+                cursor: pointer;
+                color: white;
+            }
+
+            section:not(#Contact) {
+                flex-direction: column;
+                text-align: center;
+                margin: 20px 0;
+                padding: 0 10px;
+            }
+
+            .lft,
+            .rht {
+                width: 90%;
+                margin: 10px 0;
+            }
+
+            .rht img:not(#Contact .rht img) {
+                width: 50%;
+                max-width: 50%;
+            }
+
+        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -208,7 +298,7 @@
         console.log("Portfolio Website Loaded");
 
         document.querySelectorAll('nav ul li a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
@@ -227,9 +317,17 @@
         });
     });
 </script>
+
 <body>
     <header>
         <nav>
+            <span class="open-btn" onclick="toggleNav()">&#9776;</span>
+            <div class="side-nav" id="sideNav">
+                <a href="javascript:void(0)" id="closeBtn">&#10006;</a>
+                <a href="#certificates">Certificates</a>
+                <a href="#projects">Projects</a>
+                <a href="#Contact">Connect with Me</a>
+            </div>
             <div class="logo">
                 <a href="#home"><img src="Assets/MyPhoto.jpg" alt="" width="100">Ojaswi Shrivastava</a>
             </div>
@@ -306,6 +404,23 @@
 
         <hr>
     </main>
+    <script>
+        function toggleNav() {
+            var sideNav = document.getElementById("sideNav");
+            // Check if the sidebar is already closed (width = 0)
+            if (sideNav.style.width === "0px" || sideNav.style.width === "") {
+                sideNav.style.width = "250px"; // Open the sidebar
+            } else {
+                sideNav.style.width = "0"; // Close the sidebar
+            }
+        }
+        document.getElementById("closeBtn").addEventListener("click", toggleNav);
+        // Added event listener to close the sidebar when clicking on any link inside the sidebar
+        document.querySelectorAll(".side-nav a").forEach(link => {
+            link.addEventListener("click", toggleNav);
+        });
+    </script>
+
 </body>
 
 </html>
