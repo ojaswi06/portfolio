@@ -1,0 +1,283 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    font-size: 1em;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: rgb(0, 0, 33);
+    line-height: 1.5;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+nav {
+    background-color: rgb(7, 7, 73);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 90px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+main {
+    padding-top: 90px;
+}
+
+main hr {
+    border: 0;
+    background: #9c97f1;
+    height: 1.2px;
+    margin: 60px 84px;
+}
+
+section hr {
+    background: white;
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+    margin: 130px 0px;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+section div {
+    justify-content: left;
+}
+
+.lft {
+    font-size: 3rem;
+    width: 40%;
+}
+
+.rht {
+    width: 30%;
+}
+
+.lft p {
+    font-size: 2rem;
+}
+
+.rht img {
+    width: 100%;
+}
+
+
+#projects {
+    max-width: 80vw;
+    margin: auto;
+}
+
+#Contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+}
+
+#Contact .lft ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#Contact .lft ul li {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+#Contact .lft ul li a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
+#Contact .lft ul li img {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+#Contact .rht {
+    width: 40%;
+    text-align: center;
+}
+
+#Contact .rht img {
+    width: 100%;
+}
+
+#Contact .lft ul li a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color: rgb(183, 183, 252);
+}
+
+.side-nav {
+    display: none;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.side-nav a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-nav a:hover {
+    color: #f1f1f1;
+}
+
+.open-btn {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .bar {
+        display: none;
+    }
+
+    .side-nav {
+        display: block;
+    }
+
+    .lft {
+        font-size: 1.5rem;
+    }
+
+    .lft p {
+        font-size: 1.2rem;
+    }
+
+    hr {
+        margin: 40px 0;
+    }
+
+    .open-btn {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+    }
+
+    section:not(#Contact) {
+        flex-direction: column;
+        text-align: center;
+        margin: 20px 0;
+        padding: 0 10px;
+    }
+
+    .lft,
+    .rht {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .rht img:not(#Contact .rht img) {
+        width: 50%;
+        max-width: 50%;
+    }
+
+}
