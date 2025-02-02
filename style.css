@@ -125,8 +125,87 @@ section div {
 
 
 #projects {
-    max-width: 80vw;
-    margin: auto;
+    padding: 40px;
+    min-height: 100vh;
+    /* Make the section take the full page height */
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+    /* Center the content vertically */
+    align-items: center;
+    /* Center the content horizontally */
+}
+
+/* Left and Right container styling */
+#projects .lft,
+#projects .rht {
+    width: 100%;
+}
+
+/* Header in the left section */
+#projects .lft h1 {
+    font-size: 3rem;
+    color: #fffefe;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Right container styling */
+#projects .rht {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* Individual project card styling */
+.project {
+    background-color: rgb(97,97,159);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease;
+}
+
+/* Styling for the project title and link */
+.project h2 {
+    font-size: 24px;
+    color: rgb(25, 25, 56);
+    margin-bottom: 15px;
+}
+
+.project a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project a:hover {
+    color: rgb(15, 15, 65);
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Paragraph styling */
+.project p {
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Image container styling */
+.project .cnnimg img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    /* justify-content: center; */
+}
+
+/* Hover effect for project cards */
+.project:hover {
+    transform: translateY(-5px);
 }
 
 #Contact {
@@ -252,7 +331,7 @@ ul li a:hover {
     }
 
     hr {
-        margin: 40px 0;
+        margin-top: 400px;
     }
 
     .open-btn {
@@ -267,6 +346,7 @@ ul li a:hover {
         text-align: center;
         margin: 20px 0;
         padding: 0 10px;
+        /* height: 0vh; */
     }
 
     .lft,
@@ -279,5 +359,15 @@ ul li a:hover {
         width: 50%;
         max-width: 50%;
     }
+}
 
+@media (orientation: landscape) {
+    #home .rht img {
+        width: 50%;
+    }
+
+    /* hr {
+        margin: 150px; 
+        width: 80%; 
+    } */
 }
